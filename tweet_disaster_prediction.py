@@ -5,7 +5,6 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential, load_model
 import pandas as pd
-from sklearn.metrics import classification_report, confusion_matrix
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, LSTM, Dense
 from tensorflow.keras.preprocessing.text import Tokenizer
@@ -18,7 +17,8 @@ model = load_model(model_path)
 def process_text(input_text):
     # Your NLP model processing code goes here
     # Replace the print statement with your model's inference code
-    
+    tokenizer = Tokenizer(num_words=10000)  # Consider top 10,000 words
+    max_sequence_length=100
     my_tweet = [input_text]
     new_sequences_1 = tokenizer.texts_to_sequences(my_tweet)
     new_data_1 = pad_sequences(new_sequences_1, maxlen=max_sequence_length)
