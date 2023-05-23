@@ -1,0 +1,8 @@
+numpy
+pandas
+Pillow
+opencv-python-headless
+streamlit
+streamlit-option-menu
+tensorflow
+split-folders
